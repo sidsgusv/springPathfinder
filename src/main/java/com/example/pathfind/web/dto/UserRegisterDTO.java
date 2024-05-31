@@ -1,11 +1,22 @@
 package com.example.pathfind.web.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class UserRegisterDTO {
 
     //Данните, които очакваме да получим
-
+    @NotEmpty
+    @NotNull
     private String username;
+
+    @NotEmpty
+    @Size(min = 5)
     private String fullName;
+
+@Email
     private String email;
     private Integer age;
     private String password;
