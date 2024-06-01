@@ -1,9 +1,6 @@
 package com.example.pathfind.web.dto;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public class UserRegisterDTO {
 
@@ -18,8 +15,14 @@ public class UserRegisterDTO {
 
 @Email
     private String email;
+
+@Min(0)
+@Max(90)
     private Integer age;
+
+@Size(min = 5)
     private String password;
+
     private String confirmPassword;
 
     public UserRegisterDTO() {
