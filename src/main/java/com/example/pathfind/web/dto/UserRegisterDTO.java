@@ -5,11 +5,11 @@ import jakarta.validation.constraints.*;
 public class UserRegisterDTO {
 
     //Данните, които очакваме да получим
-    @NotEmpty
+   @NotBlank
     @NotNull
     private String username;
 
-    @NotEmpty
+ @NotBlank
     @Size(min = 5)
     private String fullName;
 
