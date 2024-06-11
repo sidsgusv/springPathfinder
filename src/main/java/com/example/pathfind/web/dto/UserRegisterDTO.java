@@ -6,7 +6,7 @@ public class UserRegisterDTO {
 
     //Данните, които очакваме да получим
    @NotBlank
-    @NotNull
+  @Size(min = 2)
     private String username;
 
  @NotBlank
