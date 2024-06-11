@@ -29,7 +29,9 @@ public class UserController {
         //bindingResult - за да видим грешките
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("registerData",userRegisterDTO);
-            return "register";
+            redirectAttributes.addFlashAttribute(
+                    "org.springframework.validation.BindingResult.userRegisterDTO", bindingResult);
+            return "redirect:register";
         }
 
         //препраща към login страницата
