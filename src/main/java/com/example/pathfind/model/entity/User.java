@@ -1,5 +1,7 @@
-package com.example.pathfind.model;
+package com.example.pathfind.model.entity;
 
+import com.example.pathfind.model.entity.Level;
+import com.example.pathfind.model.entity.Role;
 import jakarta.persistence.*;
 
 import java.util.HashSet;

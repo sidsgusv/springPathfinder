@@ -1,14 +1,21 @@
-package com.example.pathfind.service.dto;
+package com.example.pathfind.model.entity;
 
-public class RouteShortInfoDTO {
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "categories")
+public class Category {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String name;
+    @Enumerated(EnumType.STRING)
+    private CategoryType name;
+    @Column(columnDefinition = "TEXT")
     private String description;
 
-    private String imageUrl;
+    public Category() {
 
-    public RouteShortInfoDTO() {
     }
 
     public long getId() {
@@ -19,11 +26,11 @@ public class RouteShortInfoDTO {
         this.id = id;
     }
 
-    public String getName() {
+    public CategoryType getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(CategoryType name) {
         this.name = name;
     }
 
@@ -33,13 +40,5 @@ public class RouteShortInfoDTO {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
     }
 }

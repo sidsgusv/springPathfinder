@@ -1,4 +1,4 @@
-package com.example.pathfind.model;
+package com.example.pathfind.model.entity;
 
 import jakarta.persistence.*;
 
