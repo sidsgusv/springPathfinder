@@ -4,29 +4,21 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "roles")
-public class Role {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class Role extends BaseEntity{
+
     @Enumerated(EnumType.STRING)
-    private UserRoles name;
+    private RoleNameEnum name;
 
     public Role() {
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
-    public UserRoles getName() {
+    public RoleNameEnum getName() {
         return name;
     }
 
-    public void setName(UserRoles name) {
+    public void setName(RoleNameEnum name) {
         this.name = name;
     }
 }

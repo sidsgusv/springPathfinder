@@ -7,14 +7,12 @@ import java.util.Set;
 
 @Entity
 @Table(name = "routes")
-public class Route {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class Route extends BaseEntity{
+
     @Column(name = "gpx_coordinates", columnDefinition = "LONGTEXT")
     private String gpxCoordinates;
     @Enumerated(EnumType.STRING)
-    private Level level;
+    private LevelEnum level;
     @Column(nullable = false)
     private String name;
     @Column(columnDefinition = "LONGTEXT")
@@ -36,13 +34,7 @@ public class Route {
         this.categories=new HashSet<>();
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getGpxCoordinates() {
         return gpxCoordinates;
@@ -52,11 +44,11 @@ public class Route {
         this.gpxCoordinates = gpxCoordinates;
     }
 
-    public Level getLevel() {
+    public LevelEnum getLevel() {
         return level;
     }
 
-    public void setLevel(Level level) {
+    public void setLevel(LevelEnum level) {
         this.level = level;
     }
 

@@ -4,13 +4,11 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "categories")
-public class Category {
+public class Category extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+
     @Enumerated(EnumType.STRING)
-    private CategoryType name;
+    private CategoryNameEnum name;
     @Column(columnDefinition = "TEXT")
     private String description;
 
@@ -18,19 +16,13 @@ public class Category {
 
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
-    public CategoryType getName() {
+    public CategoryNameEnum getName() {
         return name;
     }
 
-    public void setName(CategoryType name) {
+    public void setName(CategoryNameEnum name) {
         this.name = name;
     }
 

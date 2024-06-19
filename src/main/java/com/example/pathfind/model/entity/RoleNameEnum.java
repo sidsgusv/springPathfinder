@@ -1,5 +1,5 @@
 package com.example.pathfind.model.entity;
 
-public enum UserRoles {
+public enum RoleNameEnum {
     USER, MODERATOR,ADMIN
 }

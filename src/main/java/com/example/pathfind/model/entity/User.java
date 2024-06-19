@@ -1,7 +1,5 @@
 package com.example.pathfind.model.entity;
 
-import com.example.pathfind.model.entity.Level;
-import com.example.pathfind.model.entity.Role;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -9,40 +7,31 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-@Column(nullable = false,unique = true)
+public class User extends BaseEntity {
+
+    @Column(nullable = false, unique = true)
     private String username;
 
     @Column(nullable = false)
     private String password;
 
-    @Column(name = "full_name",nullable = false)
+    @Column(name = "full_name", nullable = false)
     private String fullName;
 
     @Column(unique = true)
     private String email;
 
     @Enumerated(EnumType.STRING)
-    private Level level;
+    private LevelEnum level;
     private Integer age;
     @ManyToMany
-    private Set<Role>roles;
+    private Set<Role> roles;
 
     public User() {
-        this.roles=new HashSet<>();
+        this.roles = new HashSet<>();
 
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
@@ -76,11 +65,11 @@ public class User {
         this.email = email;
     }
 
-    public Level getLevel() {
+    public LevelEnum getLevel() {
         return level;
     }
 
-    public void setLevel(Level level) {
+    public void setLevel(LevelEnum level) {
         this.level = level;
     }
 

@@ -1,5 +1,5 @@
 package com.example.pathfind.model.entity;
 
-public enum Level {
+public enum LevelEnum {
     BEGINNER, INTERMEDIATE, ADVANCED
 }

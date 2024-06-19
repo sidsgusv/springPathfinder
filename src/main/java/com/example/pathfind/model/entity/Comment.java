@@ -6,10 +6,8 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "comments")
-public class Comment {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class Comment extends BaseEntity{
+
     @Column(nullable = false)
     private boolean approved;
 
@@ -26,13 +24,7 @@ public class Comment {
     }
 
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public boolean isApproved() {
         return approved;

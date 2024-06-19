@@ -6,11 +6,9 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "messages")
-public class Message {
+public class Message extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+
     @Column(nullable = false, name = "date_time")
     private Instant dateTime;
     @Column(name = "text_content", columnDefinition = "TEXT")
@@ -24,13 +22,7 @@ public class Message {
     public Message() {
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public Instant getDateTime() {
         return dateTime;

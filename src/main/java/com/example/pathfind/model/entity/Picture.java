@@ -4,10 +4,8 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "pictures")
-public class Picture {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class Picture extends BaseEntity{
+
 
     private String title;
 
@@ -21,13 +19,7 @@ public class Picture {
     public Picture() {
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
