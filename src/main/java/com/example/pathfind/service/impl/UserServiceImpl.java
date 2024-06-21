@@ -1,5 +1,6 @@
 package com.example.pathfind.service.impl;
 
+
 import com.example.pathfind.model.entity.LevelEnum;
 import com.example.pathfind.model.entity.User;
 import com.example.pathfind.model.service.UserServiceModel;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
+
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
     private final CurrentUser currentUser;
@@ -31,15 +33,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserServiceModel findByUsernameAndPassword(String username, String password) {
-        return userRepository.findByUsernameAndPassword(username, password)
-                .map(user -> modelMapper.map(user, UserServiceModel.class))
+
+        return userRepository.findByUsernameAndPassword(username,password)
+                .map(user -> modelMapper.map(user,UserServiceModel.class))
                 .orElse(null);
     }
 
     @Override
     public void loginUser(Long id, String username) {
-        currentUser.setUsername(username);
         currentUser.setId(id);
+        currentUser.setUsername(username);
 
     }
 
@@ -48,4 +51,17 @@ public class UserServiceImpl implements UserService {
         currentUser.setId(null);
         currentUser.setUsername(null);
     }
+
+    @Override
+    public UserServiceModel findById(Long id) {
+        return userRepository.findById(id)
+                .map(user -> modelMapper.map(user,UserServiceModel.class))
+                .orElse(null);
+    }
+
+
+
+
+
+
 }
