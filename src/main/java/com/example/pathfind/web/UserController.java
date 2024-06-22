@@ -4,6 +4,7 @@ package com.example.pathfind.web;
 import com.example.pathfind.model.binding.UserLoginBindingModel;
 import com.example.pathfind.model.binding.UserRegisterBindingModel;
 import com.example.pathfind.model.service.UserServiceModel;
+import com.example.pathfind.model.view.UserViewModel;
 import com.example.pathfind.service.UserService;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,6 +54,12 @@ public class UserController {
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userRegisterBindingModel", bindingResult);
 
             return "redirect:register";
+        }
+
+        boolean isNameExists=userService.isNameExists(userRegisterBindingModel.getUsername());
+
+        if(isNameExists){
+            //ToDo
         }
 
 
@@ -109,6 +117,16 @@ public class UserController {
         userService.logout();
         return "redirect:/";
     }
+
+    @GetMapping("/profile/{id}")
+    public String profile(@PathVariable Long id, Model model){
+        model.addAttribute("user",modelMapper
+                .map(userService.findById(id), UserViewModel.class));
+        return "profile";
+    }
+
+
+
 
 
 
