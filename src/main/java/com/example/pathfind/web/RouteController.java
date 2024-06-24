@@ -1,6 +1,7 @@
 package com.example.pathfind.web;
 
 
+import com.example.pathfind.model.view.RouteViewModel;
 import com.example.pathfind.service.RouteService;
 import com.example.pathfind.util.CurrentUser;
 import jakarta.validation.Valid;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/routes")
@@ -31,11 +33,11 @@ public class RouteController {
 
 
     @GetMapping("/all")
-    public String allRoutes(){
+    public String allRoutes(Model model){
 
 
-//        model.addAttribute("routes",routeService
-//                .findAllRoutesView());
+        model.addAttribute("routes",routeService
+                .findAllRoutesView());
 
         return "routes";
     }
