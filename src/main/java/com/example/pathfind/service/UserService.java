@@ -1,5 +1,6 @@
 package com.example.pathfind.service;
 
+import com.example.pathfind.model.entity.User;
 import com.example.pathfind.model.service.UserServiceModel;
 
 public interface UserService {
@@ -19,4 +20,7 @@ public interface UserService {
 
 
     boolean isNameExists(String username);
+
+    User findCurrentLoginUserEntity();
+
 }

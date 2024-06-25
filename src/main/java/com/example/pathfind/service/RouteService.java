@@ -1,5 +1,6 @@
 package com.example.pathfind.service;
 
+import com.example.pathfind.model.service.RouteServiceModel;
 import com.example.pathfind.model.view.RouteViewModel;
 import org.springframework.stereotype.Service;
 
@@ -10,4 +11,6 @@ public interface RouteService {
 
 
     List<RouteViewModel> findAllRoutesView();
+
+    void addNewRoute(RouteServiceModel routeServiceModel);
 }
