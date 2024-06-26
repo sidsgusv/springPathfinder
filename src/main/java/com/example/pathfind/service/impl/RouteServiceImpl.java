@@ -2,6 +2,7 @@ package com.example.pathfind.service.impl;
 
 import com.example.pathfind.model.entity.Route;
 import com.example.pathfind.model.service.RouteServiceModel;
+import com.example.pathfind.model.view.RouteDetailsViewModel;
 import com.example.pathfind.model.view.RouteViewModel;
 import com.example.pathfind.repository.RouteRepository;
 import com.example.pathfind.service.CategoryService;
@@ -61,5 +62,12 @@ public class RouteServiceImpl implements RouteService {
 
         routeRepository.save(route);
 
+    }
+
+    @Override
+    public RouteDetailsViewModel findRouteById(Long id) {
+        return routeRepository.findById(id)
+                .map(route -> modelMapper.map(route, RouteDetailsViewModel.class))
+                .orElse(null);
     }
 }
